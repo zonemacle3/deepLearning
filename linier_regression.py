@@ -6,7 +6,9 @@ y_train = [0, -1, -2, -3]
 
 tf.model = tf.keras.Sequential() # 입출력이 선형으로 연결 
 # units == output shape, input_dim == input shape
-tf.model.add(tf.keras.layers.Dense(units=1, input_dim=1)) # fully-connected 계층 , unit = 출력뉴런의 개수 
+tf.model.add(tf.keras.layers.Dense(units=1, input_dim=1)) # fully-connected 계층 , 
+# unit = 출력뉴런의 개수 , input_dim = 입력 차원 개수 
+# == 이는 입력 데이터가 1차원 배열이고 출력도 1개의 값이라는 것을 의미 
 
 sgd = tf.keras.optimizers.SGD(lr=0.1)  # SGD == standard gradient descendent, lr == learning rate
 tf.model.compile(loss='mse', optimizer=sgd)  # mse == mean_squared_error, 1/m * sig (y'-y)^2
